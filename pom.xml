@@ -1,0 +1,161 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.onndoo</groupId>
+	<artifactId>security</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<compiler-plugin.version>3.13.0</compiler-plugin.version>
+		<war-plugin.version>3.4.0</war-plugin.version>
+	</properties>
+
+	<dependencies>
+		<!-- Servlet -->
+		<!-- Provided by Tomcat -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>6.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Expression Language -->
+		<!-- Provided by Tomcat -->
+		<dependency>
+			<groupId>jakarta.el</groupId>
+			<artifactId>jakarta.el-api</artifactId>
+			<version>5.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- WebService REST -->
+		<!-- Specification -->
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- Implementation -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>3.1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>3.1.9</version>
+		</dependency>
+
+		<!-- CDI -->
+		<!-- Specification -->
+		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		<!-- Implementation -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>5.1.5.Final</version>
+		</dependency>
+
+		<!-- Security -->
+		<!-- Specification -->
+		<dependency>
+			<groupId>jakarta.security.enterprise</groupId>
+			<artifactId>jakarta.security.enterprise-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- Implementation -->
+		<dependency>
+			<groupId>org.glassfish.soteria</groupId>
+			<artifactId>jakarta.security.enterprise</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.glassfish.soteria</groupId>-->
+		<!--			<artifactId>soteria.spi.bean.decorator.weld</artifactId>-->
+		<!--			<version>3.0.3</version>-->
+		<!--		</dependency>-->
+
+		<!--
+		https://mvnrepository.com/artifact/jakarta.authentication/jakarta.authentication-api -->
+		<dependency>
+			<groupId>jakarta.authentication</groupId>
+			<artifactId>jakarta.authentication-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--		Authorization-->
+		<dependency>
+			<groupId>jakarta.authorization</groupId>
+			<artifactId>jakarta.authorization-api</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.exousia</groupId>
+			<artifactId>exousia</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.glassfish.exousia/exousia.spi.tomcat -->
+		<dependency>
+			<groupId>org.glassfish.exousia</groupId>
+			<artifactId>exousia.spi.tomcat</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+
+		<!--  XML -->
+		<!--  Specification -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>4.0.2</version>
+		</dependency>
+		<!--  Implementation -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>4.0.5</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.2.224</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>security</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
